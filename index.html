@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="manifest" href="./manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Skoop Mobile Dashboard</title>
-    <link rel="stylesheet" href="styles.css?v=y2r8k4">
+    <title>Skoop Live Dashboard</title>
+    <!-- Versioning all assets with ?v=r4t7y1 -->
+    <link rel="stylesheet" href="styles.css?v=r4t7y1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -17,72 +17,71 @@
     <div class="app-container">
         <!-- Status Bar -->
         <header class="status-bar">
-            <div class="time" id="current-time">12:00</div>
+            <div class="time" id="current-time">00:00</div>
             <div class="status-icons">
-                <span class="battery">100%</span>
+                <span id="network-status" class="status-badge">Online</span>
+                <span class="battery">98%</span>
             </div>
         </header>
 
         <!-- Main Content -->
         <main class="content">
             <section class="hero">
-                <h1 class="greeting">Good Morning</h1>
-                <p class="date" id="current-date">Thursday, April 16</p>
-            </section>
-
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-label">Visitors</span>
-                    <span class="stat-value">1,284</span>
-                    <span class="stat-trend positive">+12%</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-label">Sales</span>
-                    <span class="stat-value">$4,520</span>
-                    <span class="stat-trend positive">+8%</span>
-                </div>
-            </section>
-
-            <section class="featured">
-                <h3>Latest Updates</h3>
-                <div class="scroll-container" id="updates-list">
-                    <!-- Dynamic content will be injected here -->
-                    <div class="update-card">
-                        <div class="update-img" style="background-image: url('assets/update1.jpg?v=x9b3v2')"></div>
-                        <div class="update-info">
-                            <h4>New Feature Launch</h4>
-                            <p>Check out our latest AI tools.</p>
-                        </div>
+                <div class="hero-top">
+                    <h1 class="greeting" id="greeting-text">Hello!</h1>
+                    <div class="weather-widget" id="weather-widget">
+                        <div class="temp">--°C</div>
+                        <div class="condition">Loading...</div>
                     </div>
+                </div>
+                <p class="date" id="current-date">Loading date...</p>
+            </section>
+
+            <!-- Live Market Stats -->
+            <section class="section-container">
+                <h3 class="section-title">Live Markets</h3>
+                <div class="stats-grid">
+                    <div class="stat-card" id="btc-card">
+                        <span class="stat-label">Bitcoin (BTC)</span>
+                        <span class="stat-value">$0.00</span>
+                        <span class="stat-trend" id="btc-trend">0.00%</span>
+                    </div>
+                    <div class="stat-card" id="eth-card">
+                        <span class="stat-label">Ethereum (ETH)</span>
+                        <span class="stat-value">$0.00</span>
+                        <span class="stat-trend" id="eth-trend">0.00%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live News Section -->
+            <section class="section-container featured">
+                <h3 class="section-title">Latest Headlines</h3>
+                <div class="scroll-container" id="news-list">
+                    <!-- Dynamic news will be injected here -->
+                    <div class="loading-news">Fetching the latest stories...</div>
                 </div>
             </section>
         </main>
 
-        <!-- Bottom Navigation -->
+        <!-- Bottom Navigation (Non-interactive display) -->
         <nav class="bottom-nav">
             <div class="nav-item active">
                 <span class="icon">🏠</span>
-                <span class="label">Home</span>
+                <span class="label">Live</span>
             </div>
             <div class="nav-item">
-                <span class="icon">📊</span>
-                <span class="label">Stats</span>
+                <span class="icon">📈</span>
+                <span class="label">Market</span>
             </div>
             <div class="nav-item">
-                <span class="icon">👤</span>
-                <span class="label">Profile</span>
+                <span class="icon">📰</span>
+                <span class="label">News</span>
             </div>
         </nav>
     </div>
-    <script src="script.js?v=y2r8k4"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('./sw.js')
-          .then(function (reg) { console.log('[PWA] SW registered:', reg.scope); })
-          .catch(function (err) { console.warn('[PWA] SW registration failed:', err); });
-      });
-    }
-  </script>
+
+    <!-- Versioning script with ?v=r4t7y1 -->
+    <script src="script.js?v=r4t7y1"></script>
 </body>
 </html>
